@@ -1,3 +1,5 @@
+@import "/src/pages/home-page/styles/sliders.scss";
+
 body {
   background-color: #000;
   display: flex;
@@ -58,7 +60,6 @@ body {
   }
 
   & &__title-description {
-    // font-family: Space Grotesk;
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
@@ -84,89 +85,30 @@ body {
     line-height: 19px;
     letter-spacing: -0.01em;
     text-align: left;
+    transition: .2s;
   }
 
-  .info {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    color: #fff;
-  }
+  & &__button:hover {
+    cursor: pointer;
+}
 
-  & &__slider-content {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  & &__slider-title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: -0.01em;
-  }
-
-  & &__slider-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 64px 32px 0;
-  }
-
-  & &__slider-else-links {
-    display: flex;
-    gap: 10px;
-    a {
-      color: #fff;
+.play:hover {
+        background-color:#E8E8E8;
     }
-  }
 
-  & &__slider-images {
-    display: flex;
-    // align-items: center;
-    gap: 8px;
-    flex-wrap: nowrap;
-    // overflow: hidden;
-    // position: relative;
-    overflow-x: auto;
-    img {
-      max-width: 256px;
-      border-radius: 16px;
+    .info {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(4px);
+        color: #fff;
     }
-  }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  & &__slider-button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 36px;
-    position: absolute;
-    right: 0;
-    height: 164px;
-    width: 200px;
-    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-
-    .arrow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 20px;
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.2);
-      img {
-        width: 16px;
-        padding: 16px;
-      }
+    
+    .info:hover {
+      background-color: #FFFFFF4D;
     }
-  }
+
+ 
 
   @media (width < 1250px) {
-    & &__head {
-      margin-top: -700px;
-    }
+   
   }
 }
