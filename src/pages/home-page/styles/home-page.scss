@@ -14,7 +14,7 @@ body {
   }
 
   & &__head {
-    padding: 162px 0 88px 64px ;
+    padding: 162px 0 88px 64px;
     margin-top: -820px;
   }
 
@@ -74,6 +74,7 @@ body {
 
   & &__button {
     display: flex;
+    align-items: center;
     gap: 10px;
     border-radius: 444px;
     border: none;
@@ -84,36 +85,56 @@ body {
     line-height: 19px;
     letter-spacing: -0.01em;
     text-align: left;
-    transition: .2s;
+    transition: 0.2s;
   }
 
   & &__button:hover {
     cursor: pointer;
-}
+  }
 
-.play:hover {
-        background-color:#E8E8E8;
-    }
+  .play:hover {
+    background-color: #e8e8e8;
+  }
 
-    .info {
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(4px);
-        color: var(--color-white);
-    }
-    
-    .info:hover {
-      background-color: #FFFFFF4D;
-    }
+  .info {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: var(--color-white);
+  }
 
- 
+  .info:hover {
+    background-color: #ffffff4d;
+  }
 
   @media (max-width: 980px) {
-   & &__head {
-    padding: 162px 0 88px 40px;
-   }
+    & &__head {
+      padding: 162px 0 88px 40px;
+    }
 
-   & &__title-name img{
-    max-width: 425px;
-   }
+    & &__title-name img {
+      max-width: 425px;
+    }
+  }
+
+  @media (max-width: 470px) {
+    & &__head {
+      padding: 162px 16px 88px 16px;
+    }
+
+    & &__title-name {
+      padding: 16px 0;
+      img {
+        max-width: 269px;
+      }
+    }
+
+    & &__title-description {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    & &__button {
+      padding: 18px 16px;
+    }
   }
 }
