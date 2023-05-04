@@ -5,48 +5,43 @@ import Swiper, { Navigation } from "swiper";
 import "swiper/css";
 // import "swiper/css/navigation";
 
-const swiper = new Swiper(".swiper", {
+const swiperLoop = new Swiper(".nx-component__slider-content", {
   modules: [Navigation],
   direction: "horizontal",
   effect: "coverflow",
   loop: true,
-  slidesPerView: 4,
+  slidesPerView: "auto",
   grabCursor: true,
-  spaceBetween: 8,
-  updateOnWindowResize: false,
-  
-  // slidesOffsetAfter: 0,
-  // slidesOffsetBefore: 0,
-  
-  // width: 256,
-  
+  // updateOnWindowResize: false,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  // breakpoints: {
-    //   480: {
-      //     slidesPerView: 3,
-      //   }
-      // }
-    });
-    
-const swiperTop = new Swiper(".swiper-top", {
+  on: {
+    slideChange: function () {
+      const currentIndex = this.activeIndex;
+      console.log(`Aktualny indeks slajdu: ${currentIndex}`);
+    },
+  },
+});
+
+// dodać lewy button
+
+const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   modules: [Navigation],
   direction: "horizontal",
   effect: "coverflow",
-  slidesPerView: 3,
+  slidesPerView: "auto",
   grabCursor: true,
-  spaceBetween: 56,
-  updateOnWindowResize: false,
+  slidesOffsetAfter: 160,
+  // updateOnWindowResize: false,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  // breakpoints: {
-  //   480: {
-  //     slidesPerGroup: 1,
-  //     slidesPerView: 1,
-  //   }
-  // }
+  on: {
+    activeIndexChange: function () {
+      // console.log("slide changed");
+    },
+  },
 });

@@ -153,4 +153,14 @@ z-index: -1;
       padding: 18px 16px;
     }
   }
+
+  @media (max-width: 300px){
+    & &__title-footer {
+      gap: 6px;
+      }
+
+      & &__button {
+        padding: 16px 12px;
+      }
+  }
 }
