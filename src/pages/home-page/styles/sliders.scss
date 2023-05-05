@@ -97,22 +97,20 @@
     background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
     left: 0;
     padding-left: 36px;
+
     .arrow {
       transform: rotate(180deg);
     }
+
     &[data-prev="1"] {
-      .nx-component__slider-button{
-        display: flex;
+        opacity: 1;
+      }
+      
+      &[data-prev="0"] {
+          opacity: 0;
       }
     }
-
-    &[data-prev="0"] {
-      .nx-component__slider-button{ 
-        display: none;
-      }
-    }
-  }
-
+      
   .rated {
     max-height: 224px;
     top: 0;
@@ -191,6 +189,7 @@
     & &__slider-button {
       display: none;
     }
+
 
     & &__slider-header {
       padding: 0 16px 0 0;

@@ -12,20 +12,24 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
   loop: true,
   slidesPerView: "auto",
   grabCursor: true,
-  // updateOnWindowResize: false,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
   on: {
-    slideChange: function () {
+    /// jeśli slajd się zmienia, dodaje prevButton
+    ///
+    slideChange: function (el) {
       const currentIndex = this.activeIndex;
-      console.log(`Aktualny indeks slajdu: ${currentIndex}`);
+      
+      const prevButton = this.el.querySelector(".prev");
+      if(currentIndex > 0){
+        prevButton.dataset.prev = "1";
+      }
     },
   },
 });
 
-// dodać lewy button
 
 const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   modules: [Navigation],
@@ -33,15 +37,22 @@ const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   effect: "coverflow",
   slidesPerView: "auto",
   grabCursor: true,
-  slidesOffsetAfter: 160,
-  // updateOnWindowResize: false,
+  slidesOffsetAfter: 550,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+
   on: {
-    activeIndexChange: function () {
-      // console.log("slide changed");
+    slideChange: function (el) {
+      const currentIndex = this.activeIndex;
+      const prevButton = this.el.querySelector(".prev");
+      console.log(prevButton)
+      if(currentIndex > 0){
+        prevButton.dataset.prev = "1";
+      } else {
+        prevButton.dataset.prev = "0";
+      }
     },
   },
 });
