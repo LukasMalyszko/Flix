@@ -20,11 +20,16 @@ const commonConfig = {
 const swiperLoop = new Swiper(".nx-component__slider-content", {
   ...commonConfig,
   loop: true,
+  // edgeSwipeDetection: "prevent",
+  // rewind: true,
+  // slidesPerGroupAuto: true,
+  // slidesPerGroupSkip: 2,
+
   /// jeśli slajd się zmienia, dodaje prevButton
   ///
   on: {
-    slideChange: function (el) {
-      const currentIndex = this.activeIndex;
+    activeIndexChange: function (el) {
+      const currentIndex = this.realIndex;
       const prevButton = this.el.querySelector(".prev");
       if(currentIndex > 0){
         prevButton.dataset.button = "1";
@@ -37,17 +42,18 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
 
 const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   ...commonConfig,
-  slidesOffsetAfter: 550,
+  slidesOffsetAfter: 580,
   on: {
     slideChange: function (el) {
-      const currentIndex = this.activeIndex;
+      const currentIndex = this.realIndex;
       const prevButton = this.el.querySelector(".prev");
       const nextButton = this.el.querySelector(".next");
       console.log(currentIndex)
-      if(currentIndex >= 9){
+      if(currentIndex >= 8){
         nextButton.dataset.button = "0";
       } else if (currentIndex > 0) {
         prevButton.dataset.button = "1";
+        nextButton.dataset.button = "1";
       } else {
         prevButton.dataset.button = "0";
       }
