@@ -4,7 +4,6 @@ import Swiper, { Navigation } from "swiper";
 // import Swiper and modules styles
 import "swiper/css";
 
-
 const commonConfig = {
   modules: [Navigation],
   direction: "horizontal",
@@ -14,7 +13,6 @@ const commonConfig = {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  
 };
 
 const swiperLoop = new Swiper(".nx-component__slider-content", {
@@ -28,7 +26,7 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
     activeIndexChange: function (el) {
       const currentIndex = this.realIndex;
       const prevButton = this.el.querySelector(".prev");
-      if(currentIndex > 0){
+      if (currentIndex > 0) {
         prevButton.dataset.button = "1";
       } else {
         prevButton.dataset.button = "0";
@@ -39,23 +37,23 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
 
 const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   ...commonConfig,
-  slidesOffsetAfter: 200,
-  spaceBetween: 56,
   on: {
     slideChange: function (el) {
       const currentIndex = this.realIndex;
-      const prevButton = this.el.querySelector(".prev");
       const nextButton = this.el.querySelector(".next");
-      console.log(currentIndex)
-      if(currentIndex >= 8){
-        nextButton.dataset.button = "0";
-      } else if (currentIndex > 0) {
+      const prevButton = this.el.querySelector(".prev");
+      if (currentIndex > 0) {
         prevButton.dataset.button = "1";
-        nextButton.dataset.button = "1";
       } else {
         prevButton.dataset.button = "0";
       }
-    }
+      if (!this.isEnd) {
+        nextButton.dataset.button = "1";
+      } 
+    },
+    reachEnd: function (el) {
+      const nextButton = this.el.querySelector(".next");
+      nextButton.dataset.button = "0";
+    },
   },
 });
-
