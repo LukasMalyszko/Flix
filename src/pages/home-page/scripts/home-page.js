@@ -20,6 +20,7 @@ const commonConfig = {
 const swiperLoop = new Swiper(".nx-component__slider-content", {
   ...commonConfig,
   loop: true,
+  spaceBetween: 8,
 
   /// jeśli slajd się zmienia, dodaje prevButton
   ///
@@ -38,7 +39,8 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
 
 const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   ...commonConfig,
-  slidesOffsetAfter: 580,
+  slidesOffsetAfter: 200,
+  spaceBetween: 56,
   on: {
     slideChange: function (el) {
       const currentIndex = this.realIndex;
