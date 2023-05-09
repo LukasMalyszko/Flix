@@ -20,10 +20,6 @@ const commonConfig = {
 const swiperLoop = new Swiper(".nx-component__slider-content", {
   ...commonConfig,
   loop: true,
-  // edgeSwipeDetection: "prevent",
-  // rewind: true,
-  // slidesPerGroupAuto: true,
-  // slidesPerGroupSkip: 2,
 
   /// jeśli slajd się zmienia, dodaje prevButton
   ///
