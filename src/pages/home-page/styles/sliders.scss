@@ -1,13 +1,10 @@
 .nx-component {
-  .sliders {
-    padding: 0 0 0 64px;
-  }
-
   & &__slider-content {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 32px 0 64px;
+    padding: 32px 0 64px 0;
+    margin-left: 64px;
     overflow: hidden;
   }
 
@@ -16,6 +13,7 @@
     font-weight: 600;
     line-height: 24px;
     letter-spacing: -0.01em;
+    padding-left: 64px;
   }
 
   & &__slider-header {
@@ -122,18 +120,24 @@
   }
 
   @media (max-width: 980px) {
-    .sliders {
-      padding: 0 0 0 40px;
+    & &__slider-content {
+      padding: 32px 0 64px 0;
+      margin-left: 40px;
+    }
+
+    & &__slider-title {
+      padding-left: 40px;
     }
 
     & &__slider-header {
-      padding: 0 40px 0 0;
+      padding-right: 40px;
     }
   }
 
   @media (max-width: 590px) {
-    .sliders {
-      padding: 0 0 0 16px;
+    & &__slider-content {
+      padding: 32px 0 40px 0;
+      margin-left: 16px;
     }
 
     & &__slider-button {
@@ -152,6 +156,7 @@
       max-width: 132px;
       font-size: 18px;
       line-height: 18px;
+      padding-left: 16px;
     }
 
     & &__slider-else-links {

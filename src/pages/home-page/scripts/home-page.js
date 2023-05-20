@@ -9,10 +9,12 @@ const commonConfig = {
   direction: "horizontal",
   slidesPerView: "auto",
   grabCursor: true,
+  allowSlidePrev: false,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  
 };
 
 const swiperLoop = new Swiper(".nx-component__slider-content", {
@@ -24,6 +26,7 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
   ///
   on: {
     activeIndexChange: function (el) {
+      this.allowSlidePrev = true;
       const currentIndex = this.realIndex;
       const prevButton = this.el.querySelector(".prev");
       if (currentIndex > 0) {
@@ -39,6 +42,7 @@ const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   ...commonConfig,
   on: {
     slideChange: function (el) {
+      // this.allowSlidePrev = true;
       const currentIndex = this.realIndex;
       const nextButton = this.el.querySelector(".next");
       const prevButton = this.el.querySelector(".prev");
