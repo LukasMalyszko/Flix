@@ -14,7 +14,6 @@ const commonConfig = {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  
 };
 
 const swiperLoop = new Swiper(".nx-component__slider-content", {
@@ -26,13 +25,17 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
   ///
   on: {
     activeIndexChange: function (el) {
+      let sliderWrapper = this.el.closest(".nx-component__slider-content");
+      console.log(sliderWrapper);
       this.allowSlidePrev = true;
       const currentIndex = this.realIndex;
       const prevButton = this.el.querySelector(".prev");
       if (currentIndex > 0) {
         prevButton.dataset.button = "1";
+        sliderWrapper.toggleAttribute("data-delete-margin")
       } else {
         prevButton.dataset.button = "0";
+        sliderWrapper.removeAttribute("data-delete-margin")
       }
     },
   },
@@ -42,7 +45,7 @@ const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   ...commonConfig,
   on: {
     slideChange: function (el) {
-      // this.allowSlidePrev = true;
+      this.allowSlidePrev = true;
       const currentIndex = this.realIndex;
       const nextButton = this.el.querySelector(".next");
       const prevButton = this.el.querySelector(".prev");
@@ -53,7 +56,7 @@ const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
       }
       if (!this.isEnd) {
         nextButton.dataset.button = "1";
-      } 
+      }
     },
     reachEnd: function (el) {
       const nextButton = this.el.querySelector(".next");
