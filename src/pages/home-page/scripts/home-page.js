@@ -25,17 +25,15 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
   ///
   on: {
     activeIndexChange: function (el) {
-      let sliderWrapper = this.el.closest(".nx-component__slider-content");
-      console.log(sliderWrapper);
       this.allowSlidePrev = true;
       const currentIndex = this.realIndex;
       const prevButton = this.el.querySelector(".prev");
       if (currentIndex > 0) {
         prevButton.dataset.button = "1";
-        sliderWrapper.toggleAttribute("data-delete-margin")
+        sliderWrapper.toggleAttribute("data-delete-margin");
       } else {
         prevButton.dataset.button = "0";
-        sliderWrapper.removeAttribute("data-delete-margin")
+        sliderWrapper.removeAttribute("data-delete-margin");
       }
     },
   },
@@ -43,6 +41,13 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
 
 const swiperNoLoop = new Swiper(".nx-component__slider-rated-content", {
   ...commonConfig,
+  slidesOffsetAfter: 250,
+  breakpoints: {
+    480: {
+      slidesOffsetAfter:100,
+    },
+  },
+
   on: {
     slideChange: function (el) {
       this.allowSlidePrev = true;
