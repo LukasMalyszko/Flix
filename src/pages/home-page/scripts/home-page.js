@@ -30,10 +30,8 @@ const swiperLoop = new Swiper(".nx-component__slider-content", {
       const prevButton = this.el.querySelector(".prev");
       if (currentIndex > 0) {
         prevButton.dataset.button = "1";
-        sliderWrapper.toggleAttribute("data-delete-margin");
       } else {
         prevButton.dataset.button = "0";
-        sliderWrapper.removeAttribute("data-delete-margin");
       }
     },
   },
